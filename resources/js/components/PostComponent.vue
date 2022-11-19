@@ -2,6 +2,7 @@
     <div>
         Vue 123213123
         <SinglePostComponent></SinglePostComponent>
+        <div>Name: {{name}}</div>
     </div>
 </template>
 
@@ -11,6 +12,11 @@ export default {
     name: "PostComponent",
     components: {
         SinglePostComponent
+    },
+    data() {
+        return {
+            name: 'Vasya'
+        }
     }
 }
 </script>
