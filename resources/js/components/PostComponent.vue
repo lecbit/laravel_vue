@@ -2,7 +2,9 @@
     <div>
         Vue 123213123
         <SinglePostComponent></SinglePostComponent>
-        <div>Name: {{name}}</div>
+        <div>Name: {{ name }}</div>
+        <button @click="sayHello()">Hello</button>
+        <button @click="sayHi()">Hi</button>
     </div>
 </template>
 
@@ -17,6 +19,14 @@ export default {
         return {
             name: 'Vasya'
         }
-    }
+    },
+    methods: {
+        sayHello() {
+            console.log('Hello');
+        },
+        sayHi(){
+            console.log('Hi');
+        }
+    },
 }
 </script>
