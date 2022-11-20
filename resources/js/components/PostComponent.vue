@@ -3,6 +3,7 @@
         Vue 123213123
         <SinglePostComponent></SinglePostComponent>
         <div>Name: {{ name }}</div>
+        <div>{{ vasyaJob }}</div>
         <button @click="sayHello()">Hello</button>
         <button @click="sayHi()">Hi</button>
     </div>
@@ -24,9 +25,14 @@ export default {
         sayHello() {
             console.log('Hello');
         },
-        sayHi(){
+        sayHi() {
             console.log('Hi');
         }
     },
+    computed: {
+        vasyaJob() {
+            return this.name + ' работает в булошной'
+        }
+    }
 }
 </script>
