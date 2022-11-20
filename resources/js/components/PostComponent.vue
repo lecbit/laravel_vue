@@ -1,11 +1,23 @@
 <template>
     <div>
-        Vue 123213123
-        <SinglePostComponent></SinglePostComponent>
-        <div>Name: {{ name }}</div>
-        <div>{{ vasyaJob }}</div>
-        <button @click="sayHello()">Hello</button>
-        <button @click="sayHi()">Hi</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Возраст</th>
+                    <th scope="col">Должность</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="person in persons">
+                    <th scope="row">{{person.id}}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.job }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -13,26 +25,29 @@
 import SinglePostComponent from './SinglePostComponent.vue';
 export default {
     name: "PostComponent",
-    components: {
-        SinglePostComponent
-    },
     data() {
         return {
-            name: 'Vasya'
+            persons: [
+                {
+                    id: 1,
+                    name: 'Vasya',
+                    age: 20,
+                    job: 'coach'
+                },
+                {
+                    id: 2,
+                    name: 'Kolya',
+                    age: 24,
+                    job: 'developer'
+                },
+                {
+                    id: 3,
+                    name: 'Borya',
+                    age: 23,
+                    job: 'driver'
+                },
+            ]
         }
     },
-    methods: {
-        sayHello() {
-            console.log('Hello');
-        },
-        sayHi() {
-            console.log('Hi');
-        }
-    },
-    computed: {
-        vasyaJob() {
-            return this.name + ' работает в булошной'
-        }
-    }
 }
 </script>
