@@ -10,12 +10,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="person in persons">
-                    <th scope="row">{{person.id}}</th>
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.age }}</td>
-                    <td>{{ person.job }}</td>
-                </tr>
+                <template v-for="person in personsAgeLessTwenty">
+                    <tr>
+                        <th scope="row">{{ person.id }}</th>
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.age }}</td>
+                        <td>{{ person.job }}</td>
+                    </tr>
+                </template>
             </tbody>
         </table>
     </div>
@@ -23,6 +25,7 @@
 
 <script>
 import SinglePostComponent from './SinglePostComponent.vue';
+
 export default {
     name: "PostComponent",
     data() {
@@ -46,8 +49,32 @@ export default {
                     age: 23,
                     job: 'driver'
                 },
+                {
+                    id: 4,
+                    name: 'Chetv',
+                    age: 19,
+                    job: 'maker'
+                },
+                {
+                    id: 5,
+                    name: 'Pyaty',
+                    age: 18,
+                    job: 'seller'
+                },
             ]
         }
     },
+    computed: {
+        personsAgeMoreTwenty() {
+            return this.persons.filter(function (person) {
+                return person.age > 20
+            })
+        },
+        personsAgeLessTwenty() {
+            return this.persons.filter(function (person) {
+                return person.age < 20
+            })
+        }
+    }
 }
 </script>
